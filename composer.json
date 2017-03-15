@@ -1,0 +1,44 @@
+{
+  "name":"oneup/contao-email-login",
+  "description":"This extension lets you use an email address for the contao form login.",
+  "keywords":["contao", "module", "login", "email", "extension"],
+  "type":"contao-module",
+  "homepage":"http://1up.io",
+  "license":"MIT",
+  "authors":[
+    {
+      "name":"David Greminger",
+      "email":"dg@1up.io",
+      "homepage":"http://1up.io",
+      "role":"Developer"
+    }
+  ],
+  "support":{
+    "email":"hello@1up.io",
+    "issues":"https://github.com/1up-lab/contao-email-login/issues",
+    "irc":"irc://irc.freenode.org/contao.dev",
+    "source":"https://github.com/1up-lab/contao-email-login"
+  },
+  "require":{
+    "php":">=5.6",
+    "contao/core":"^3.2",
+    "contao-community-alliance/composer-plugin":"~2.4 | ~3.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Oneup\\Contao\\": "src"
+    }
+  },
+  "extra": {
+    "contao": {
+      "sources": {
+        "contao": "system/modules/contao-email-login"
+      }
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
