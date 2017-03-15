@@ -4,25 +4,30 @@ namespace Oneup\Contao\EmailLogin;
 
 use Contao\Frontend;
 use Contao\MemberModel;
+use Contao\UserModel;
 
 class ImportUser extends Frontend
 {
-    public function __construct()
-    {
-        return parent::__construct();
-    }
-
     public function getUsernameByEmail($username, $password, $table)
     {
-        if ('tl_member' === $table) {
-            if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
-                $member = MemberModel::findOneByEmail($username);
+        $user = null;
 
-                if (null !== $member) {
-                    $this->Input->setPost('username', $member->username);
-                    return true;
-                }
-            }
+        if (false === filter_var($username, FILTER_VALIDATE_EMAIL)) {
+            return false;
+        }
+
+        if ('tl_member' === $table) {
+            $user = MemberModel::findOneByEmail($username);
+        }
+
+        if ('tl_user' === $table) {
+            $user = UserModel::findOneByEmail($username);
+        }
+
+        if (null !== $user) {
+            $this->Input->setPost('username', $user->username);
+
+            return true;
         }
 
         return false;
