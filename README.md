@@ -1,4 +1,4 @@
-Contao Sentry
+Contao Email Login
 ==========================
 
 This extension lets you use an email address for the contao form login.  
